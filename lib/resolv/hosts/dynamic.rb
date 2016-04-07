@@ -1,3 +1,4 @@
+require 'resolv'
 
 module Resolv
   module Hosts
