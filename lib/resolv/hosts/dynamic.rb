@@ -1,4 +1,3 @@
-require "resolv/hosts/dynamic/version"
 
 module Resolv
   module Hosts

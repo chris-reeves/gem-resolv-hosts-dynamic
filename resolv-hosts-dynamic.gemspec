@@ -1,11 +1,10 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'resolv/hosts/dynamic/version'
 
 Gem::Specification.new do |spec|
   spec.name          = "resolv-hosts-dynamic"
-  spec.version       = Resolv::Hosts::Dynamic::VERSION
+  spec.version       = "0.0.1"
   spec.authors       = ["Chris Reeves"]
   spec.email         = ["chris.reeves@york.ac.uk"]
   spec.summary       = %q{Dynamic in-memory 'hosts' file for resolving hostnames.}
