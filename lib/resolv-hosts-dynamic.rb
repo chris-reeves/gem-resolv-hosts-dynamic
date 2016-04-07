@@ -1,8 +1,8 @@
 require 'resolv'
 
-module Resolv
-  module Hosts
-    module Dynamic
+class Resolv
+  class Hosts
+    class Dynamic
 
       def initialize(hosts = [])
         @mutex = Mutex.new
