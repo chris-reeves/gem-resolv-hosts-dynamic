@@ -208,4 +208,80 @@ describe Resolv::Hosts::Dynamic do
       end
     end
   end
+
+  # takes the first ip if there are multiple IPs
+  describe 'resolver methods' do
+    dynres = Resolv::Hosts::Dynamic.new
+
+    # address with multiple names
+    dynres.add_address({
+      'addr'     => '127.1.2.3',
+      'hostname' => 'host.example.com',
+      'aliases'  => 'host'
+    })
+
+    # name with multiple addresses
+    dynres.add_address({
+      'addr'     => '127.4.5.6',
+      'hostname' => 'host.example.com',
+    })
+
+    res = Resolv.new([dynres])
+
+    describe '#getaddress' do
+      it 'resolves host.example.com to a single address' do
+        expect(
+          res.getaddress('host.example.com')
+        ).to eq '127.1.2.3'
+      end
+
+      it 'raises ResolvError if the name can not be looked up' do
+        expect{
+          res.getaddress('no.such.host.')
+        }.to raise_error(Resolv::ResolvError)
+      end
+    end
+
+    describe '#getaddresses' do
+      it 'resolves host.example.com to multiple addresses' do
+        expect(
+          res.getaddresses('host.example.com')
+        ).to eq [ '127.1.2.3', '127.4.5.6' ]
+      end
+
+      it 'resolves to no addresses if the name can not be looked up' do
+        expect(
+          res.getaddresses('no.such.host.').empty?
+        ).to be true
+      end
+    end
+
+    describe '#getname' do
+      it 'resolves 127.1.2.3 to a single hostname' do
+        expect(
+          res.getname('127.1.2.3')
+        ).to eq 'host.example.com'
+      end
+
+      it 'raises ResolvError if the address can not be looked up' do
+        expect{
+          res.getname('127.7.8.9')
+        }.to raise_error(Resolv::ResolvError)
+      end
+    end
+
+    describe '#getnames' do
+      it 'resolves 127.1.2.3 to a single hostname' do
+        expect(
+          res.getnames('127.1.2.3')
+        ).to eq [ 'host.example.com', 'host' ]
+      end
+
+      it 'resolves to no hostnames if the address can not be looked up' do
+        expect(
+          res.getnames('127.7.8.9').empty?
+        ).to be true
+      end
+    end
+  end
 end
