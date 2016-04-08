@@ -2,8 +2,9 @@
 
 Dynamic in-memory 'hosts' file for resolving hostnames. Injects entries into
 an in-memory 'hosts' file which can later be used for name resolution without
-having to modify the sy  stem hosts file. This is useful for over-riding name
-resolution during testing.
+having to modify the system hosts file. This is an extension to the standard
+ruby Resolv library and is useful for over-riding name resolution during
+testing.
 
 ## Installation
 
