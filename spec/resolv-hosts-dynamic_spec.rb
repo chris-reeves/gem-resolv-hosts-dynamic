@@ -1,7 +1,6 @@
 require 'spec_helper'
 
 describe Resolv::Hosts::Dynamic do
-  subject { Resolv::Hosts::Dynamic.new }
 
   describe '#initialize' do
     context 'with an empty params list' do
@@ -20,7 +19,7 @@ describe Resolv::Hosts::Dynamic do
 
     context 'with a single (hash) param' do
       res = Resolv::Hosts::Dynamic.new({
-        'addr'     => '127.123.456.789',
+        'addr'     => '127.1.2.3',
         'hostname' => 'host.example.com',
       })
 
@@ -40,15 +39,15 @@ describe Resolv::Hosts::Dynamic do
     context 'with a single (array) param' do
       res = Resolv::Hosts::Dynamic.new([
         {
-          'addr'     => '127.123.456.789',
+          'addr'     => '127.1.2.3',
           'hostname' => 'host.example.com',
         },
         {
-          'addr'     => '127.456.789.123',
+          'addr'     => '127.4.5.6',
           'hostname' => 'host2.example.com',
         },
         {
-          'addr'     => '127.789.123.456',
+          'addr'     => '127.7.8.9',
           'hostname' => 'host3.example.com',
         },
       ])
@@ -72,19 +71,19 @@ describe Resolv::Hosts::Dynamic do
       res = Resolv::Hosts::Dynamic.new
 
       res.add_address({
-        'addr'     => '127.123.456.789',
+        'addr'     => '127.1.2.3',
         'hostname' => 'host.example.com',
       })
 
       it 'should map the hostname to the address' do
         expect(
           res.instance_variable_get(:@name2addr)['host.example.com']
-        ).to eq(['127.123.456.789'])
+        ).to eq(['127.1.2.3'])
       end
 
       it 'should map the address to the hostname' do
         expect(
-          res.instance_variable_get(:@addr2name)['127.123.456.789']
+          res.instance_variable_get(:@addr2name)['127.1.2.3']
         ).to eq(['host.example.com'])
       end
     end
@@ -93,7 +92,7 @@ describe Resolv::Hosts::Dynamic do
       res = Resolv::Hosts::Dynamic.new
 
       res.add_address({
-        'addr'     => '127.123.456.789',
+        'addr'     => '127.1.2.3',
         'hostname' => 'host.example.com',
         'aliases'  => 'host',
       })
@@ -101,18 +100,18 @@ describe Resolv::Hosts::Dynamic do
       it 'should map the hostname to the address' do
         expect(
           res.instance_variable_get(:@name2addr)['host.example.com']
-        ).to eq(['127.123.456.789'])
+        ).to eq(['127.1.2.3'])
       end
 
       it 'should map the alias to the address' do
         expect(
           res.instance_variable_get(:@name2addr)['host']
-        ).to eq(['127.123.456.789'])
+        ).to eq(['127.1.2.3'])
       end
 
       it 'should map the address to the hostname and alias' do
         expect(
-          res.instance_variable_get(:@addr2name)['127.123.456.789']
+          res.instance_variable_get(:@addr2name)['127.1.2.3']
         ).to eq(['host.example.com', 'host'])
       end
     end
@@ -121,7 +120,7 @@ describe Resolv::Hosts::Dynamic do
       res = Resolv::Hosts::Dynamic.new
 
       res.add_address({
-        'addr'     => '127.123.456.789',
+        'addr'     => '127.1.2.3',
         'hostname' => 'host.example.com',
         'aliases'  => [ 'host', 'host2' ],
       })
@@ -129,22 +128,22 @@ describe Resolv::Hosts::Dynamic do
       it 'should map the hostname to the address' do
         expect(
           res.instance_variable_get(:@name2addr)['host.example.com']
-        ).to eq(['127.123.456.789'])
+        ).to eq(['127.1.2.3'])
       end
 
       it 'should map both aliases to the address' do
         expect(
           res.instance_variable_get(:@name2addr)['host']
-        ).to eq(['127.123.456.789'])
+        ).to eq(['127.1.2.3'])
 
         expect(
           res.instance_variable_get(:@name2addr)['host2']
-        ).to eq(['127.123.456.789'])
+        ).to eq(['127.1.2.3'])
       end
 
       it 'should map the address to the hostname and the aliases' do
         expect(
-          res.instance_variable_get(:@addr2name)['127.123.456.789']
+          res.instance_variable_get(:@addr2name)['127.1.2.3']
         ).to eq(['host.example.com', 'host', 'host2'])
       end
     end
@@ -153,28 +152,28 @@ describe Resolv::Hosts::Dynamic do
       res = Resolv::Hosts::Dynamic.new
 
       res.add_address({
-        'addr'     => '127.123.456.789',
+        'addr'     => '127.1.2.3',
         'hostname' => 'host.example.com',
       })
 
       res.add_address({
-        'addr'     => '127.123.456.789',
+        'addr'     => '127.1.2.3',
         'hostname' => 'host2.example.com',
       })
 
       it 'should map both hostnames to the address' do
         expect(
           res.instance_variable_get(:@name2addr)['host.example.com']
-        ).to eq(['127.123.456.789'])
+        ).to eq(['127.1.2.3'])
 
         expect(
           res.instance_variable_get(:@name2addr)['host2.example.com']
-        ).to eq(['127.123.456.789'])
+        ).to eq(['127.1.2.3'])
       end
 
       it 'should map the address to both hostnames' do
         expect(
-          res.instance_variable_get(:@addr2name)['127.123.456.789']
+          res.instance_variable_get(:@addr2name)['127.1.2.3']
         ).to eq(['host.example.com', 'host2.example.com'])
       end
     end
@@ -183,28 +182,28 @@ describe Resolv::Hosts::Dynamic do
       res = Resolv::Hosts::Dynamic.new
 
       res.add_address({
-        'addr'     => '127.123.456.789',
+        'addr'     => '127.1.2.3',
         'hostname' => 'host.example.com',
       })
 
       res.add_address({
-        'addr'     => '127.456.789.123',
+        'addr'     => '127.4.5.6',
         'hostname' => 'host.example.com',
       })
 
       it 'should map the hostname to both addresses' do
         expect(
           res.instance_variable_get(:@name2addr)['host.example.com']
-        ).to eq(['127.123.456.789', '127.456.789.123'])
+        ).to eq(['127.1.2.3', '127.4.5.6'])
       end
 
       it 'should map both addresses to the hostname' do
         expect(
-          res.instance_variable_get(:@addr2name)['127.123.456.789']
+          res.instance_variable_get(:@addr2name)['127.1.2.3']
         ).to eq(['host.example.com'])
 
         expect(
-          res.instance_variable_get(:@addr2name)['127.456.789.123']
+          res.instance_variable_get(:@addr2name)['127.4.5.6']
         ).to eq(['host.example.com'])
       end
     end
