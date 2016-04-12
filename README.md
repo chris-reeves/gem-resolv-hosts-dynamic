@@ -27,7 +27,7 @@ Or install it yourself as:
 ### Adding entries to the dynamic host resolver
 
 Entries can be added during class instantiation or at any point afterwards
-(via the `add_address` function) if we've still got a handle on the object. An
+(via the `add_address` method) if we've still got a handle on the object. An
 entry consists of a hash with the `addr` and `hostname` properties, plus an
 optional `aliases` property. Entries added during class instantiation can be
 in the form of a single entry or an array of entries. `add_address` only
@@ -60,6 +60,7 @@ res.add_address({
 This class can be used on its own or within the standard ruby Resolv library.
 
 On its own:
+
 ```ruby
 require 'resolv-hosts-dynamic'
 
@@ -73,6 +74,7 @@ res.getname('127.1.2.3')
 ```
 
 Within the standard ruby Resolv library:
+
 ```ruby
 require 'resolv-hosts-dynamic'
 
@@ -93,6 +95,7 @@ res.getaddresses('rubygems.org')
 
 Replacing the default resolver in the standard ruby Resolv library (using
 `resolve-replace`):
+
 ```ruby
 require 'resolv-hosts-dynamic'
 require 'resolv-replace'
