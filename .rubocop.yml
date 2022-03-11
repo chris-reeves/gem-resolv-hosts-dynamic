@@ -3,3 +3,10 @@ AllCops:
   Exclude:
     - 'spec/fixtures/**/*'
   NewCops: enable
+Layout/HashAlignment:
+  EnforcedColonStyle: table
+  EnforcedHashRocketStyle: table
+Layout/FirstArrayElementIndentation:
+  EnforcedStyle: consistent
+Layout/FirstHashElementIndentation:
+  EnforcedStyle: consistent
