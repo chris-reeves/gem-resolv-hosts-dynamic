@@ -217,7 +217,7 @@ describe Resolv::Hosts::Dynamic do
     dynres.add_address({
       'addr'     => '127.1.2.3',
       'hostname' => 'host.example.com',
-      'aliases'  => 'host'
+      'aliases'  => 'host',
     })
 
     # name with multiple addresses
