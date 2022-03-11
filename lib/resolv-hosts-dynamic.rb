@@ -39,7 +39,7 @@ class Resolv
           @addr2name[addr] += aliases if aliases
           @name2addr[hostname] = [] unless @name2addr.include? hostname
           @name2addr[hostname] << addr
-          aliases.each {|n|
+          aliases.each { |n|
             n.untaint
             @name2addr[n] = [] unless @name2addr.include? n
             @name2addr[n] << addr
@@ -51,7 +51,7 @@ class Resolv
       # Gets the IP address of +name+ from the custom resolver.
 
       def getaddress(name)
-        each_address(name) {|address| return address}
+        each_address(name) { |address| return address }
         raise ResolvError.new("No dynamic hosts entry for name: #{name}")
       end
 
@@ -60,7 +60,7 @@ class Resolv
 
       def getaddresses(name)
         ret = []
-        each_address(name) {|address| ret << address}
+        each_address(name) { |address| ret << address }
         return ret
       end
 
@@ -77,7 +77,7 @@ class Resolv
       # Gets the hostname of +address+ from the custom resolver.
 
       def getname(address)
-        each_name(address) {|name| return name}
+        each_name(address) { |name| return name }
         raise ResolvError.new("No dynamic hosts entry for address: #{address}")
       end
 
@@ -86,7 +86,7 @@ class Resolv
 
       def getnames(address)
         ret = []
-        each_name(address) {|name| ret << name}
+        each_name(address) { |name| ret << name }
         return ret
       end
 

@@ -122,7 +122,7 @@ describe Resolv::Hosts::Dynamic do
       res.add_address({
         'addr'     => '127.1.2.3',
         'hostname' => 'host.example.com',
-        'aliases'  => [ 'host', 'host2' ],
+        'aliases'  => ['host', 'host2'],
       })
 
       it 'should map the hostname to the address' do
@@ -246,7 +246,7 @@ describe Resolv::Hosts::Dynamic do
       it 'resolves host.example.com to multiple addresses' do
         expect(
           res.getaddresses('host.example.com')
-        ).to eq [ '127.1.2.3', '127.4.5.6' ]
+        ).to eq ['127.1.2.3', '127.4.5.6']
       end
 
       it 'resolves to no addresses if the name can not be looked up' do
@@ -274,7 +274,7 @@ describe Resolv::Hosts::Dynamic do
       it 'resolves 127.1.2.3 to a single hostname' do
         expect(
           res.getnames('127.1.2.3')
-        ).to eq [ 'host.example.com', 'host' ]
+        ).to eq ['host.example.com', 'host']
       end
 
       it 'resolves to no hostnames if the address can not be looked up' do
