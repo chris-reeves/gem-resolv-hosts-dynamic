@@ -3,7 +3,6 @@ require 'resolv'
 class Resolv
   class Hosts
     class Dynamic
-
       def initialize(hosts = [])
         @mutex = Mutex.new
         @name2addr = {}
@@ -98,7 +97,6 @@ class Resolv
           @addr2name[address].each(&proc)
         end
       end
-
     end
   end
 end

@@ -1,7 +1,6 @@
 require 'spec_helper'
 
 describe Resolv::Hosts::Dynamic do
-
   describe '#initialize' do
     context 'with an empty params list' do
       res = Resolv::Hosts::Dynamic.new
