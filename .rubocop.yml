@@ -1,0 +1,5 @@
+---
+AllCops:
+  Exclude:
+    - 'spec/fixtures/**/*'
+  NewCops: enable
