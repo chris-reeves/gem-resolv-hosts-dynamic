@@ -1,4 +1,3 @@
-# coding: utf-8
 # frozen_string_literal: true
 
 lib = File.expand_path('../lib', __FILE__)
@@ -9,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.version       = '0.0.2'
   spec.authors       = ['Chris Reeves']
   spec.email         = ['chris.reeves@york.ac.uk']
-  spec.summary       = %q{Dynamic in-memory 'hosts' file for resolving hostnames.}
-  spec.description   = %q{Dynamic in-memory 'hosts' file for resolving hostnames. Injects entries into an in-memory 'hosts' file which can later be used for name resolution without having to modify the system hosts file. This is an extension to the standard ruby Resolv library and is useful for over-riding name resolution during testing.}
+  spec.summary       = "Dynamic in-memory 'hosts' file for resolving hostnames."
+  spec.description   = "Dynamic in-memory 'hosts' file for resolving hostnames. Injects entries into an in-memory 'hosts' file which can later be used for name resolution without having to modify the system hosts file. This is an extension to the standard ruby Resolv library and is useful for over-riding name resolution during testing."
   spec.homepage      = ''
   spec.license       = 'MIT'
 

@@ -123,7 +123,7 @@ describe Resolv::Hosts::Dynamic do
       res.add_address({
         'addr'     => '127.1.2.3',
         'hostname' => 'host.example.com',
-        'aliases'  => ['host', 'host2'],
+        'aliases'  => %w[host host2],
       })
 
       it 'should map the hostname to the address' do
