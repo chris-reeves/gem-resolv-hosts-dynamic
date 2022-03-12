@@ -10,10 +10,10 @@ class Resolv
         @name2addr = {}
         @addr2name = {}
 
-        hosts = [hosts] if !hosts.is_a? Array
+        hosts = [hosts] unless hosts.is_a? Array
 
         hosts.each { |host|
-          self.add_address(host)
+          add_address(host)
         }
       end
 
@@ -40,11 +40,11 @@ class Resolv
           @addr2name[addr] += aliases if aliases
           @name2addr[hostname] = [] unless @name2addr.include? hostname
           @name2addr[hostname] << addr
-          aliases.each { |n|
+          aliases&.each { |n|
             n.untaint
             @name2addr[n] = [] unless @name2addr.include? n
             @name2addr[n] << addr
-          } if aliases
+          }
         }
       end
 
@@ -53,7 +53,7 @@ class Resolv
 
       def getaddress(name)
         each_address(name) { |address| return address }
-        raise ResolvError.new("No dynamic hosts entry for name: #{name}")
+        raise ResolvError, "No dynamic hosts entry for name: #{name}"
       end
 
       ##
@@ -62,16 +62,14 @@ class Resolv
       def getaddresses(name)
         ret = []
         each_address(name) { |address| ret << address }
-        return ret
+        ret
       end
 
       ##
       # Iterates over all IP addresses for +name+ retrieved from the custom resolver.
 
       def each_address(name, &proc)
-        if @name2addr.include?(name)
-          @name2addr[name].each(&proc)
-        end
+        @name2addr[name].each(&proc) if @name2addr.include?(name)
       end
 
       ##
@@ -79,7 +77,7 @@ class Resolv
 
       def getname(address)
         each_name(address) { |name| return name }
-        raise ResolvError.new("No dynamic hosts entry for address: #{address}")
+        raise ResolvError, "No dynamic hosts entry for address: #{address}"
       end
 
       ##
@@ -88,16 +86,14 @@ class Resolv
       def getnames(address)
         ret = []
         each_name(address) { |name| ret << name }
-        return ret
+        ret
       end
 
       ##
       # Iterates over all hostnames for +address+ retrieved from the custom resolver.
 
       def each_name(address, &proc)
-        if @addr2name.include?(address)
-          @addr2name[address].each(&proc)
-        end
+        @addr2name[address].each(&proc) if @addr2name.include?(address)
       end
     end
   end
