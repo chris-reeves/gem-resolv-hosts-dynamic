@@ -9,7 +9,13 @@ Gem::Specification.new do |spec|
   spec.authors       = ['Chris Reeves']
   spec.email         = ['chris.reeves@york.ac.uk']
   spec.summary       = "Dynamic in-memory 'hosts' file for resolving hostnames."
-  spec.description   = "Dynamic in-memory 'hosts' file for resolving hostnames. Injects entries into an in-memory 'hosts' file which can later be used for name resolution without having to modify the system hosts file. This is an extension to the standard ruby Resolv library and is useful for over-riding name resolution during testing."
+  spec.description   = <<-DESCRIPTION
+    Dynamic in-memory 'hosts' file for resolving hostnames. Injects entries
+    into an in-memory 'hosts' file which can later be used for name resolution
+    without having to modify the system hosts file. This is an extension to
+    the standard ruby Resolv library and is useful for over-riding name
+    resolution during testing.
+  DESCRIPTION
   spec.homepage      = ''
   spec.license       = 'MIT'
 
