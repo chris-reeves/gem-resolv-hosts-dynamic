@@ -10,6 +10,8 @@ Layout/FirstArrayElementIndentation:
   EnforcedStyle: consistent
 Layout/FirstHashElementIndentation:
   EnforcedStyle: consistent
+Metrics:
+  Enabled: false
 Naming/FileName:
   Enabled: false
 Style/TrailingCommaInArrayLiteral:
