@@ -58,7 +58,7 @@ class Resolv
       # Gets the IP address of +name+ from the custom resolver.
 
       def getaddress(name)
-        each_address(name) { |address| return address }
+        each_address(name) { |address| return address } # rubocop:disable Lint/UnreachableLoop
         raise ResolvError, "No dynamic hosts entry for name: #{name}"
       end
 
@@ -82,7 +82,7 @@ class Resolv
       # Gets the hostname of +address+ from the custom resolver.
 
       def getname(address)
-        each_name(address) { |name| return name }
+        each_name(address) { |name| return name } # rubocop:disable Lint/UnreachableLoop
         raise ResolvError, "No dynamic hosts entry for address: #{address}"
       end
 
