@@ -4,6 +4,12 @@ require 'resolv'
 
 class Resolv
   class Hosts
+    ##
+    # Resolve::Hosts::Dynamic is a dynamic in-memory 'hosts' file for
+    # resolving hostnames. It injects entries into an in-memory 'hosts' file
+    # which can later be used for name resolution without having to modify the
+    # system hosts file. This is an extension to the standard ruby Resolv
+    # library and is useful for over-riding name resolution during testing.
     class Dynamic
       def initialize(hosts = [])
         @mutex = Mutex.new
