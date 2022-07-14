@@ -237,9 +237,9 @@ describe Resolv::Hosts::Dynamic do
       end
 
       it 'raises ResolvError if the name can not be looked up' do
-        expect{
+        expect do
           res.getaddress('no.such.host.')
-        }.to raise_error(Resolv::ResolvError)
+        end.to raise_error(Resolv::ResolvError)
       end
     end
 
@@ -265,9 +265,9 @@ describe Resolv::Hosts::Dynamic do
       end
 
       it 'raises ResolvError if the address can not be looked up' do
-        expect{
+        expect do
           res.getname('127.7.8.9')
-        }.to raise_error(Resolv::ResolvError)
+        end.to raise_error(Resolv::ResolvError)
       end
     end
 

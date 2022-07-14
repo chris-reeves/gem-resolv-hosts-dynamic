@@ -12,16 +12,16 @@ class Resolv
 
         hosts = [hosts] unless hosts.is_a? Array
 
-        hosts.each { |host|
+        hosts.each do |host|
           add_address(host)
-        }
+        end
       end
 
       ##
       # Adds +host+ to the custom resolver.
 
       def add_address(host)
-        @mutex.synchronize {
+        @mutex.synchronize do
           addr = host['addr']
           hostname = host['hostname']
           aliases = host['aliases']
@@ -40,12 +40,12 @@ class Resolv
           @addr2name[addr] += aliases if aliases
           @name2addr[hostname] = [] unless @name2addr.include? hostname
           @name2addr[hostname] << addr
-          aliases&.each { |n|
+          aliases&.each do |n|
             n.untaint
             @name2addr[n] = [] unless @name2addr.include? n
             @name2addr[n] << addr
-          }
-        }
+          end
+        end
       end
 
       ##
