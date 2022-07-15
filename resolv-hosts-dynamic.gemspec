@@ -20,6 +20,9 @@ Gem::Specification.new do |spec|
   spec.license       = 'MIT'
 
   spec.metadata = {
+    'homepage_uri'          => 'https://github.com/chris-reeves/gem-resolv-hosts-dynamic',
+    'source_code_uri'       => 'https://github.com/chris-reeves/gem-resolv-hosts-dynamic',
+    'bug_tracker_uri'       => 'https://github.com/chris-reeves/gem-resolv-hosts-dynamic/issues',
     'rubygems_mfa_required' => 'true',
   }
 
