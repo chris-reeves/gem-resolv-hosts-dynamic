@@ -1,0 +1,12 @@
+# frozen_string_literal: true
+
+source 'https://rubygems.org'
+
+gemspec
+
+# This is a cut down Gemfile with minimal dependencies sufficient to run spec
+# tests across as wide a range of ruby versions as possible.
+group :development do
+  gem 'rake'
+  gem 'rspec'
+end
