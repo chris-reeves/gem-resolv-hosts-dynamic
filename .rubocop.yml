@@ -2,6 +2,7 @@
 AllCops:
   Exclude:
     - 'spec/fixtures/**/*'
+    - 'vendor/bundle/**/*'
   NewCops: enable
 Layout/HashAlignment:
   EnforcedColonStyle: table
