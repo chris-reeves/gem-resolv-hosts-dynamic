@@ -1,5 +1,8 @@
 # Resolv::Hosts::Dynamic
 
+[![Gem Version](https://badge.fury.io/rb/resolv-hosts-dynamic.svg)](https://badge.fury.io/rb/resolv-hosts-dynamic)
+[![Tests](https://github.com/chris-reeves/gem-resolv-hosts-dynamic/actions/workflows/test.yml/badge.svg)](https://github.com/chris-reeves/gem-resolv-hosts-dynamic/actions/workflows/test.yml)
+
 Dynamic in-memory 'hosts' file for resolving hostnames. Injects entries into
 an in-memory 'hosts' file which can later be used for name resolution without
 having to modify the system hosts file. This is an extension to the standard
