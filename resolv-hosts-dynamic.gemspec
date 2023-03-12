@@ -7,7 +7,7 @@ Gem::Specification.new do |spec|
   spec.name          = 'resolv-hosts-dynamic'
   spec.version       = '0.0.2'
   spec.authors       = ['Chris Reeves']
-  spec.email         = ['chris.reeves@york.ac.uk']
+  spec.email         = ['chris.reeves@iname.com']
   spec.summary       = "Dynamic in-memory 'hosts' file for resolving hostnames."
   spec.description   = <<-DESCRIPTION
     Dynamic in-memory 'hosts' file for resolving hostnames. Injects entries
