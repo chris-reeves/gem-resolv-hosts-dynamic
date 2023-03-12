@@ -21,6 +21,7 @@ Gem::Specification.new do |spec|
 
   spec.metadata = {
     'homepage_uri'          => 'https://github.com/chris-reeves/gem-resolv-hosts-dynamic',
+    'changelog_uri'         => 'https://github.com/chris-reeves/gem-resolv-hosts-dynamic/blob/master/CHANGELOG.md',
     'source_code_uri'       => 'https://github.com/chris-reeves/gem-resolv-hosts-dynamic',
     'bug_tracker_uri'       => 'https://github.com/chris-reeves/gem-resolv-hosts-dynamic/issues',
     'rubygems_mfa_required' => 'true',
