@@ -16,7 +16,7 @@ Gem::Specification.new do |spec|
     the standard ruby Resolv library and is useful for over-riding name
     resolution during testing.
   DESCRIPTION
-  spec.homepage      = ''
+  spec.homepage      = 'https://github.com/chris-reeves/gem-resolv-hosts-dynamic'
   spec.license       = 'MIT'
 
   spec.metadata = {
