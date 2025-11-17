@@ -35,9 +35,6 @@ class Resolv
           raise "Must specify 'addr' for host" unless addr
           raise "Must specify 'hostname' for host" unless hostname
 
-          addr.untaint
-          hostname.untaint
-
           # So that aliases can be passed a string or an array of strings
           aliases = [aliases] if aliases.is_a? String
 
@@ -47,7 +44,6 @@ class Resolv
           @name2addr[hostname] = [] unless @name2addr.include? hostname
           @name2addr[hostname] << addr
           aliases&.each do |n|
-            n.untaint
             @name2addr[n] = [] unless @name2addr.include? n
             @name2addr[n] << addr
           end
