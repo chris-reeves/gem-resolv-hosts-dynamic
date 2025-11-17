@@ -5,7 +5,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
 Gem::Specification.new do |spec|
   spec.name          = 'resolv-hosts-dynamic'
-  spec.version       = '1.0.0'
+  spec.version       = '1.1.0'
   spec.authors       = ['Chris Reeves']
   spec.email         = ['chris.reeves@iname.com']
   spec.summary       = "Dynamic in-memory 'hosts' file for resolving hostnames."

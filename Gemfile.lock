@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    resolv-hosts-dynamic (1.0.0)
+    resolv-hosts-dynamic (1.1.0)
 
 GEM
   remote: https://rubygems.org/
